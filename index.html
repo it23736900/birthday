@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <title>A Surprise For You ❤️</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="background">
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+    <div class="orb orb-three"></div>
+</div>
+
+<div id="stars"></div>
+<div id="confettiLayer"></div>
+
+<audio id="birthdayMusic" loop>
+    <source src="music/birthday.mp3" type="audio/mpeg">
+</audio>
+
+<section id="passwordGate" class="password-gate">
+    <div class="password-card">
+        <div class="lock-circle" id="lockCircle">
+            <span id="lockIcon">🔒</span>
+        </div>
+
+        <p class="eyebrow">PRIVATE SURPRISE</p>
+
+        <h1>
+            This one is only<br>
+            for you.
+        </h1>
+
+        <p class="password-description">
+            Before you enter, answer one tiny question.
+        </p>
+
+        <div class="hint-card">
+            <span>♡</span>
+            <div>
+                <small>Hint</small>
+                <p>The day I proposed you ❤️</p>
+            </div>
+        </div>
+
+        <div class="password-input-wrap">
+            <input
+                    id="passwordInput"
+                    type="text"
+                    placeholder="Enter the date..."
+                    autocomplete="off"
+                    inputmode="text"
+            >
+            <button id="passwordBtn" aria-label="Unlock">→</button>
+        </div>
+
+        <p id="passwordMessage"></p>
+
+        <p class="password-example">
+            A little date only we would know ✨
+        </p>
+    </div>
+</section>
+
+<div id="experience" class="experience hidden">
+
+    <header class="top-bar">
+        <span class="mini-title">made for you ♡</span>
+
+        <div class="progress-area">
+            <div class="progress-track">
+                <div id="progressBar" class="progress-bar"></div>
+            </div>
+
+            <span id="progressText">1 / 9</span>
+        </div>
+    </header>
+
+    <section class="scene active" data-scene="0">
+        <div class="content-card opening-content">
+            <div class="gift-glow">
+                <div class="gift-icon">🎁</div>
+            </div>
+
+            <p class="eyebrow">A LITTLE SOMETHING FOR YOU</p>
+
+            <h1>
+                I made something<br>
+                special for you.
+            </h1>
+
+            <p class="description">
+                Just a few little things to make your day
+                feel a little more special.
+            </p>
+
+            <button id="openExperience" class="main-button">
+                Open your surprise ✨
+            </button>
+
+            <p class="small-text">
+                Best experienced with sound ♫
+            </p>
+        </div>
+    </section>
+
+    <section class="scene" data-scene="1">
+        <div class="content-card hero-content">
+            <div class="hero-image-frame">
+                <img src="images/cover.jpeg" alt="Birthday photo">
+                <div class="photo-shine"></div>
+            </div>
+
+            <p class="eyebrow">TODAY IS YOUR DAY</p>
+
+            <h1 class="birthday-title">
+                Happy Birthday,
+                <span>SAJINI</span>
+                ❤️
+            </h1>
+
+            <p class="description">
+                May today feel as warm, bright and unforgettable
+                as you are.
+            </p>
+        </div>
+    </section>
+
+    <section class="scene" data-scene="2">
+        <div class="content-card wide">
+            <p class="eyebrow">A FEW MOMENTS WORTH KEEPING</p>
+
+            <h2>Some beautiful memories 📸</h2>
+
+            <div class="memory-gallery">
+
+                <div class="polaroid memory-one">
+                    <img src="images/memory1.jpeg" alt="Memory">
+                    <p>A moment worth keeping ✨</p>
+                </div>
+
+                <div class="polaroid memory-two">
+                    <img src="images/memory2.jpeg" alt="Memory">
+                    <p>One of my favourites ❤️</p>
+                </div>
+
+                <div class="polaroid memory-three">
+                    <img src="images/memory3.jpeg" alt="Memory">
+                    <p>Still makes me smile 🌷</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="scene" data-scene="3">
+        <div class="content-card">
+
+            <p class="eyebrow">LITTLE SURPRISE #01</p>
+
+            <h2>Scratch to reveal ✨</h2>
+
+            <p class="description">
+                There's something hiding underneath.
+            </p>
+
+            <div class="scratch-card" id="scratchCard">
+                <div class="scratch-hidden">
+                    <div class="scratch-heart">💖</div>
+
+                    <p class="scratch-small">YOU UNLOCKED</p>
+
+                    <h3>A special birthday wish</h3>
+
+                    <p>
+                        May this year bring you happiness,
+                        beautiful surprises and more reasons
+                        to smile than ever before.
+                    </p>
+
+                    <div class="scratch-stars">✦ ✦ ✦</div>
+                </div>
+
+                <canvas id="scratchCanvas"></canvas>
+
+                <div class="scratch-decoration left">✦</div>
+                <div class="scratch-decoration right">♡</div>
+            </div>
+
+            <div class="scratch-progress">
+                <div class="scratch-progress-track">
+                    <div id="scratchProgress" class="scratch-progress-bar"></div>
+                </div>
+                <span id="scratchPercent">Scratch me</span>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="scene" data-scene="4">
+        <div class="content-card wide">
+
+            <p class="eyebrow">JUST A LITTLE REMINDER</p>
+
+            <h2>A few things about you 💫</h2>
+
+            <p class="description">Tap the cards.</p>
+
+            <div class="flip-grid">
+
+                <button class="flip-card">
+                    <span class="flip-inner">
+                        <span class="flip-front">
+                            <span class="card-number">01</span>
+                            <small>tap me</small>
+                        </span>
+
+                        <span class="flip-back">
+                            Your smile has a way of making
+                            ordinary moments feel better.
+                            <span>♡</span>
+                        </span>
+                    </span>
+                </button>
+
+                <button class="flip-card">
+                    <span class="flip-inner">
+                        <span class="flip-front">
+                            <span class="card-number">02</span>
+                            <small>tap me</small>
+                        </span>
+
+                        <span class="flip-back">
+                            You bring your own kind of warmth
+                            wherever you go.
+                            <span>✨</span>
+                        </span>
+                    </span>
+                </button>
+
+                <button class="flip-card">
+                    <span class="flip-inner">
+                        <span class="flip-front">
+                            <span class="card-number">03</span>
+                            <small>tap me</small>
+                        </span>
+
+                        <span class="flip-back">
+                            You deserve a year filled with
+                            good surprises and peaceful days.
+                            <span>❤️</span>
+                        </span>
+                    </span>
+                </button>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="scene" data-scene="5">
+        <div class="content-card wide">
+
+            <p class="eyebrow">LITTLE SURPRISE #02</p>
+
+            <h2>Choose your gift 🎁</h2>
+
+            <p class="description">
+                Only one. Choose wisely 😌
+            </p>
+
+            <div class="gift-container">
+
+                <button class="gift-box" data-gift="0">
+                    <span class="gift-lid"></span>
+                    <span class="gift-body">
+                        <span class="gift-ribbon"></span>
+                    </span>
+                    <span class="gift-label">01</span>
+                </button>
+
+                <button class="gift-box" data-gift="1">
+                    <span class="gift-lid"></span>
+                    <span class="gift-body">
+                        <span class="gift-ribbon"></span>
+                    </span>
+                    <span class="gift-label">02</span>
+                </button>
+
+                <button class="gift-box" data-gift="2">
+                    <span class="gift-lid"></span>
+                    <span class="gift-body">
+                        <span class="gift-ribbon"></span>
+                    </span>
+                    <span class="gift-label">03</span>
+                </button>
+
+            </div>
+
+            <div id="giftResult" class="gift-result"></div>
+        </div>
+    </section>
+
+    <section class="scene" data-scene="6">
+        <div class="content-card spinner-section">
+
+            <p class="eyebrow">LITTLE SURPRISE #03</p>
+
+            <h2>Your birthday wheel 🎡</h2>
+
+            <p class="description">
+                Give it one good spin.
+            </p>
+
+            <div class="wheel-container">
+
+                <div class="wheel-pointer">▼</div>
+
+                <div id="birthdayWheel" class="birthday-wheel">
+
+                    <div class="wheel-label label1">🤗</div>
+                    <div class="wheel-label label2">🎂</div>
+                    <div class="wheel-label label3">💌</div>
+                    <div class="wheel-label label4">🎁</div>
+                    <div class="wheel-label label5">✨</div>
+                    <div class="wheel-label label6">❤️</div>
+
+                    <button id="spinButton" class="wheel-center">
+                        SPIN
+                    </button>
+
+                </div>
+            </div>
+
+            <div id="spinResult" class="spin-result">
+                Your surprise is waiting ✨
+            </div>
+        </div>
+    </section>
+
+    <section class="scene" data-scene="7">
+        <div class="content-card">
+
+            <p class="eyebrow">SOMETHING FROM THE HEART</p>
+
+            <h2>A letter for you 💌</h2>
+
+            <div id="envelope" class="envelope">
+
+                <div class="envelope-back"></div>
+
+                <div class="letter-paper">
+                    <h3>Happy Birthday ❤️</h3>
+
+                    <p>
+                        I hope this new year of your life
+                        brings beautiful memories, calm days,
+                        exciting opportunities and all the
+                        happiness you deserve.
+                    </p>
+
+                    <p>
+                        Whatever happens, never forget how
+                        special you are.
+                    </p>
+
+                    <strong>With lots of love ✨</strong>
+                </div>
+
+                <div class="envelope-front"></div>
+                <div class="envelope-flap"></div>
+            </div>
+
+            <button id="openLetter" class="main-button">
+                Open the letter 💌
+            </button>
+        </div>
+    </section>
+
+    <section class="scene" data-scene="8">
+        <div class="content-card final-content">
+
+            <p class="eyebrow">ONE LAST THING</p>
+
+            <h2 id="finalQuestion">Ready? ❤️</h2>
+
+            <button id="finalButton" class="big-heart">❤️</button>
+
+            <div id="finalReveal" class="final-reveal">
+
+                <div class="final-photo">
+                    <img src="images/final.jpeg" alt="Birthday">
+                </div>
+
+                <h1>
+                    Happy Birthday,
+                    <span>SAJINI</span>
+                    🎂
+                </h1>
+
+                <p>
+                    I hope this becomes one of your
+                    favourite birthdays.
+                </p>
+
+                <div class="signature">
+                    Made especially for you ♡
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <button id="nextIndicator"
+            class="next-indicator"
+            aria-label="Next section">
+
+        <span>scroll</span>
+
+        <div class="mouse-icon">
+            <div class="mouse-dot"></div>
+        </div>
+
+        <div class="arrow-down">↓</div>
+    </button>
+
+    <button id="backButton" class="back-button">←</button>
+    <button id="musicButton" class="music-button">♫</button>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
